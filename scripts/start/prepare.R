@@ -589,7 +589,7 @@ prepare <- function() {
                                 list(c("q33_H2bio_lim.M", "!!q33_H2bio_lim.M")))
     }
 
-    if(cfg$gms$CDR == 'off'){
+    if(cfg$gms$CDR == 'off' || cfg$gms$CDR == 'OAE'){
       fixings_manipulateThis <- c(fixings_manipulateThis,
                                   list(c("v33_emiDAC.FX", "!!v33_emiDAC.FX")),
                                   list(c("v33_emiEW.FX", "!!v33_emiEW.FX")),

@@ -14,6 +14,7 @@
 
 *###################### R SECTION START (MODULETYPES) ##########################
 $Ifi "%CDR%" == "DAC" $include "./modules/33_CDR/DAC/realization.gms"
+$Ifi "%CDR%" == "OAE" $include "./modules/33_CDR/OAE/realization.gms"
 $Ifi "%CDR%" == "all" $include "./modules/33_CDR/all/realization.gms"
 $Ifi "%CDR%" == "off" $include "./modules/33_CDR/off/realization.gms"
 $Ifi "%CDR%" == "weathering" $include "./modules/33_CDR/weathering/realization.gms"

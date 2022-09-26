@@ -275,6 +275,7 @@ $ENDIF.WindOff
 ***  appCarGaT  "Cars using FEGAT to produce ESGAT."  ???
         rockgrind       "grinding rock for enhanced weathering"
         dac             "direct air capture"
+        oae             "ocean alkalinity enhancement"
         x_gas2elec
         d_bio2elec      "d_* transmission and distribution losses"
         d_coal2elec
