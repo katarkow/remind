@@ -40,6 +40,6 @@ fe2cdr(all_enty,all_enty,all_te)
 te(te_dyn33)                                   = YES;
 teNoTransform(teNoTransform_dyn33)             = YES;
 teNoTransform2rlf(teNoTransform2rlf_dyn33)     = YES;
-*teAdj(adjte_dyn33)                             = YES; !! TODO add to teAdj
+teAdj(adjte_dyn33)                             = YES;
 
 *** EOF ./modules/33_CDR/all/sets.gms
