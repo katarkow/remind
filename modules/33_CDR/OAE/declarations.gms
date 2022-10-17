@@ -24,6 +24,7 @@ q33_demFeCDR(ttot,all_regi,all_enty)                   "CDR demand balance for f
 q33_FEdemand(ttot,all_regi,all_te,all_enty)            "final energy demand equation" 
 q33_emi(ttot,all_regi)                                 "CDR emissions" 
 q33_capconst(ttot,all_regi)                            "Capacity"
+q33_ccsbal(ttot,all_regi,all_enty,all_enty,all_te)     "CCS chain" 
 ;
 
 *** EOF ./modules/33_CDR/weathering/declarations.gms

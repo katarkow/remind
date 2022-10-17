@@ -30,6 +30,12 @@ q33_emi(t,regi)..
 	sum(te_dyn33, v33_emi(t,regi,te_dyn33))
 	;
 
+q33_ccsbal(t,regi,ccs2te(ccsCo2(enty),enty2,te))..
+	sum(teCCS2rlf(te,rlf), vm_ccs_cdr(t,regi,enty,enty2,te,rlf))
+	=e=
+	- v33_emi(t,regi,"oae")
+	;
+
 q33_capconst(t,regi)..
 	v33_emi(t,regi,"oae")
 	=e=
