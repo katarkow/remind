@@ -31,6 +31,7 @@ fe2cdr(all_enty,all_enty,all_te)
 /
       feels.feels.oae
       fehes.fehes.oae
+      feh2s.fehes.oae
 /
 ;
 
