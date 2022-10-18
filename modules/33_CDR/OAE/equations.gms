@@ -10,18 +10,20 @@
 *'  CDR Final Energy Balance
 ***---------------------------------------------------------------------------
 q33_demFeCDR(t,regi,entyFe)$(entyFe2Sector(entyFe,"cdr")) .. 
-  	sum((te_dyn33,entyFe2)$fe2cdr(entyFe2, entyFe,te_dyn33),
-		v33_FEdemand(t,regi,te_dyn33,entyFe2,entyFe)
+	sum((te_dyn33,entyFe2)$fe2cdr(entyFe,entyFe2,te_dyn33),
+		v33_FEdemand(t,regi,te_dyn33,entyFe,entyFe2)
 	)
 	=e=
 	sum((entySe,te)$se2fe(entySe,entyFe,te),
   		vm_demFeSector(t,regi,entySe,entyFe,"cdr","ETS")
 	);
 
-q33_FEdemand(t,regi,te_dyn33,entyFe)$(sum(entyFe2, fe2cdr(entyFe2,entyFe,te_dyn33)))..
-	sum(entyFe2$fe2cdr(entyFe2,entyFe,te_dyn33), v33_FEdemand(t,regi,te_dyn33,entyFe2,entyFe))
+q33_FEdemand(t,regi,te_dyn33,entyFe2)$(sum(entyFe, fe2cdr(entyFe,entyFe2,te_dyn33)))..
+	sum(entyFe$fe2cdr(entyFe,entyFe2,te_dyn33),
+		v33_FEdemand(t,regi,te_dyn33,entyFe,entyFe2)
+	)
 	=e=
-	- v33_emi(t,regi,te_dyn33) * sm_EJ_2_TWa * p33_FEdemand(te_dyn33,entyFe)
+	- v33_emi(t,regi,te_dyn33) * sm_EJ_2_TWa * p33_FEdemand(te_dyn33,entyFe2)
 	;
 
 q33_emi(t,regi)..
