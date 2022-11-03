@@ -32,10 +32,12 @@ q33_emi(t,regi)..
 	sum(te_dyn33, v33_emi(t,regi,te_dyn33))
 	;
 
+!! TODO add costs for transport and fedie
+
 q33_ccsbal(t,regi,ccs2te(ccsCo2(enty),enty2,te))..
 	sum(teCCS2rlf(te,rlf), vm_ccs_cdr(t,regi,enty,enty2,te,rlf))
 	=e=
-	- v33_emi(t,regi,"oae")
+	- v33_emi(t,regi,"oae") !! TODO take a factor of these emissions
 	;
 
 q33_capconst(t,regi)..
