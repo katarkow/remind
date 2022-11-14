@@ -6,8 +6,12 @@
 *** |  Contact: remind@pik-potsdam.de
 *** SOF ./modules/33_CDR/OAE/datainput.gms
 
+s33_oae_rock_demand = 1.7; !! limestone from Renforth et al. 2013 TODO document other rock types
+s33_CO2_chem_decomposition = 1.0; !! can be set to zero if no calcination is considered
+
 !! TODO describe the sources, plug in the right numbers
-p33_FEdemand("oae", "feels") = 1.8 * 3.67;
-p33_FEdemand("oae", "fehes") = 5.4 * 3.67;
+p33_FEdemand("oae", "feels") = 1.8 * 3.67; !! TODO change this to s33_oae_rock_demand * energy demand per 1t rock
+p33_FEdemand("oae", "fehes") = 5.4 * 3.67; !! TODO change this to s33_oae_rock_demand * energy demand per 1t rock
+p33_FEdemand("oae", "fedie") = 0.1 * s33_oae_rock_demand * 3.67; !! 0.1EJ / 1 Gt rock
 
 *** EOF ./modules/33_CDR/OAE/datainput.gms
