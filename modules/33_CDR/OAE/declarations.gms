@@ -5,6 +5,10 @@
 *** |  REMIND License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: remind@pik-potsdam.de
 *** SOF ./modules/33_CDR/weathering/declarations.gms
+scalars
+s33_oae_rock_demand "the amount of rock required to sequester 1GtC [Gt rock / GtC]"
+s33_CO2_chem_decomposition  "the fraction of CO2 that comes from chemical decomposition in the calcination process"
+;
 
 parameters
 p33_FEdemand(all_te,all_enty)  "final energy demand [TODO unit / GtC]"
@@ -25,6 +29,7 @@ q33_FEdemand(ttot,all_regi,all_te,all_enty)            "final energy demand equa
 q33_emi(ttot,all_regi)                                 "CDR emissions" 
 q33_capconst(ttot,all_regi)                            "Capacity"
 q33_ccsbal(ttot,all_regi,all_enty,all_enty,all_te)     "CCS chain" 
+q33_H2bio_lim(ttot,all_regi,all_te)                    "limits H2 from bioenergy to FE - otherFEdemand, i.e. no H2 from bioenergy for DAC"
 ;
 
 *** EOF ./modules/33_CDR/weathering/declarations.gms

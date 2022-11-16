@@ -47,4 +47,13 @@ q33_capconst(t,regi)..
 		vm_capFac(t,regi,"oae") * vm_cap(t,regi,"oae",rlf)
 	);
 
+***---------------------------------------------------------------------------
+*'  Limit the amount of H2 from biomass to the demand without DAC.
+***---------------------------------------------------------------------------
+q33_H2bio_lim(t,regi,te)$pe2se("pebiolc","seh2",te)..	         
+	vm_prodSE(t,regi,"pebiolc","seh2",te)
+	=l=
+    vm_prodFe(t,regi,"seh2","feh2s","tdh2s") - sum(fe2cdr("feh2s",entyFe2,te_dyn33), v33_FEdemand(t,regi,te_dyn33,"feh2s",entyFe2))
+	;
+
 *** EOF ./modules/33_CDR/OAE/equations.gms
