@@ -6,7 +6,6 @@
 *** |  Contact: remind@pik-potsdam.de
 *** SOF ./modules/33_CDR/portfolio/declarations.gms
 scalars
-*JeS* GJ/tCO2 = EJ/Gt CO2 = 44/12 EJ/Gt C. Numbers from Report from Micah Broehm.
 s33_co2_rem_pot             "specific carbon removal potential [Gt C per Gt ground rock]"
 s33_co2_rem_rate            "carbon removal rate [fraction of annual reduction of total carbon removal potential]"
 s33_costs_fix               "fixed costs for mining, grinding, spreading [T$/Gt stone]"
@@ -15,6 +14,7 @@ s33_step                    "size of bins in v33_weathering_onfield [Gt stone]"
 *KK scalars for oae*
 s33_OAE_rock_demand         "the amount of rock required to sequester 1GtC [Gt rock / GtC]"
 s33_OAE_chem_decomposition  "the fraction of CO2 that comes from chemical decomposition in the calcination process"
+*JeS* GJ/tCO2 = EJ/Gt CO2 = 44/12 EJ/Gt C. Numbers from Report from Micah Broehm.
 ;
 
 parameters

@@ -44,7 +44,6 @@ q33_capconst(t,regi,te_used33)$(not sameAs(te_used33, "weathering"))..
     - sum(teNoTransform2rlf33(te_used33,rlf),
         vm_capFac(t,regi,te_used33) * vm_cap(t,regi,te_used33,rlf)
     )
-    - (1 / pm_eta_conv(t,regi,"gash2c")) * fm_dataemiglob("pegas","seh2","gash2c","cco2") * sum(fe2cdr("fegas",entyFe2,te_used33), v33_FEdemand(t,regi,"fegas", entyFe2,te_used33))
     ;
 
 ***---------------------------------------------------------------------------
@@ -58,6 +57,7 @@ q33_ccsbal(t,regi,ccs2te(ccsCo2(enty),enty2,te))..
     sum(teCCS2rlf(te,rlf), vm_ccs_cdr(t,regi,enty,enty2,te,rlf))
     =e=
     - v33_emi(t,regi,"dac")
+    + (1 / pm_eta_conv(t,regi,"gash2c")) * fm_dataemiglob("pegas","seh2","gash2c","cco2") * sum(fe2cdr("fegas",entyFe2,te_used33), v33_FEdemand(t,regi,"fegas", entyFe2,te_used33))
     - s33_OAE_chem_decomposition * v33_emi(t,regi,"oae")
     ;
 
