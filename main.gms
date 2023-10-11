@@ -867,11 +867,6 @@ parameter
   cm_33OAE                 = 0;   !! def = 0
 *'
 parameter
-  cm_33_oae_eff             "OAE efficiency measured in tCO2 uptaken by the ocean per tCaO. Typically between 0.9-1.4. [tCO2/tCaO]"
-;
-  cm_33_oae_eff            = 0.9; !! def = 0.9
-*'
-parameter
   cm_gs_ew                  "grain size (for enhanced weathering, CDR module) [micrometre]"
 ;
   cm_gs_ew                 = 20;     !! def = 20  !! regexp = is.numeric
