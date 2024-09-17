@@ -649,6 +649,72 @@ parameter
 ***       capacities are allowed, is 2025 or cm_startyear if larger.
 *'
 parameter
+  cm_feedstockMatchingBiomass    "feedstock matching of purpose grown biomass vs residues, see teBioPebiolcPurposeGrown and teBioPebiolcResidues"
+*** (0): off
+*** (1): "only BECCS" tech in teBECCS cannot demand more pebiolc than available purpose grown biomass (i.e. cannot demand residues)
+*** (2): "full for BE+CCS" tech in teBioPebiolcPurposeGrown cannot demand more pebiolc than available purpose grown biomass (i.e. cannot demand residues); 
+***      i.e., vm_fuExtr(t,regi,"pebiolc","1") +/- trade
+*** (3): (2) and tech in teBioPebiolcResidues cannot demand more pebiolc than available biomass residues (i.e. no purpose grown);
+***      i.e., vm_fuExtr(t,regi,"pebiolc","2"); 
+;
+  cm_feedstockMatchingBiomass = 0; !! def = 0
+*'
+
+parameter
+  cm_biopyrKonTiki          "capacity factor of low tech biochar production. Set to 0 to turn off; e.g., 0.9 to turn on"
+;
+  cm_biopyrKonTiki = 0; !! def = 0
+*'
+
+parameter
+  cm_biopyrElec           "capacity factor of medium tech biochar production that optizes C in biochar and produces electricity. Set to 0 to turn off; e.g., 0.9 to turn on"
+;
+  cm_biopyrElec = 0; !! def = 0
+*'
+
+parameter
+  cm_biopyrHeat           "capacity factor of medium tech biochar production that optizes C in biochar and produces heat.  Set to 0 to turn off; e.g., 0.9 to turn on"
+;
+  cm_biopyrHeat = 0; !! def = 0
+*'
+
+parameter
+  cm_biopyrCHP          "capacity factor of high tech biochar production that optizes C in biochar and has no co-product. Set to 0 to turn off; e.g., 0.9 to turn on"
+;
+  cm_biopyrCHP = 0; !! def = 0
+*'
+
+parameter
+  cm_biopyrCHP850          "capacity factor of high tech biochar production that optizes C in biochar and has no co-product. Set to 0 to turn off; e.g., 0.9 to turn on"
+;
+  cm_biopyrCHP850 = 0; !! def = 0
+*'
+
+parameter
+  cm_biocharpriceMax        "Revenue assumed for sale of biochar4soils; REMIND native units, i.e. T USD $[2005] / (TWa BC)"
+;
+  cm_biocharpriceMax = 0.272; !! def = 0.272
+*' 0.278 TUSD 2005/TWa BC = 300 2015 USD/tBC 
+
+parameter
+ cm_biocharpriceCoefficient        "Revenue assumed for sale of biochar4soils"
+;
+ cm_biocharpriceCoefficient = 24; !! def = 24
+*'
+
+parameter
+  cm_biocharpriceConstant        "Revenue assumed for sale of biochar4soils; REMIND native units, i.e. unit USD $[2005] / (TWa BC)"
+;
+  cm_biocharpriceConstant = 0.2266; !! def = 0.2266
+*' translation is to USD2015tBC
+*' 0.0906 = 100 USD/tBC 
+*' 0.1812 = 200 USD/tBC
+*' 0.2266 = 250 USD/tBC 
+*' 0.2719 = 300 USD/tBC
+*' 0.3172 = 350 USD/tBC
+*' 0.4531 = 500 USD/tBC
+
+parameter
   cm_startyear              "first optimized modelling time step [year]"
 ;
   cm_startyear        = 2005;      !! def = 2005 for a baseline  !! regexp = 20[0-9](0|5)
@@ -1616,6 +1682,13 @@ $setGLobal c_agricult_base_shift off !! def off
 *** cm_wind_offshore  1, wind energy is represented by "wind" and "windoff", where "wind" means wind onshore. Later this will be the default and the name "wind" will be made to change to windon
 *** cm_wind_offshore  0, means wind energy is only represented by "wind", which is a mixture of both wind onshore and wind offshore
 $setglobal cm_wind_offshore  1      !! def = 1
+*** flag whether biochar revenue is modelled or not; 0 = not, 1 = modelled
+$setGLobal cm_biocharRevenue 1 !! def on    
+*** flag deermining the form of biochar price-demand function assumed"
+*** exponential: exponential price-demand curve, determined by cm_biocharpriceMax and cm_biocharpriceCoefficient
+*** constant: constant price, determined by  cm_biocharpriceConstant
+*** linearTimeDependent: decreasing price over time, independent of deployment
+$setGLobal  cm_biocharPriceForm linearTimeDependent !! Def linearTimeDependent    
 ***  cm_INCONV_PENALTY  on     !! def = on
 *** *RP* 2012-03-06 Flag to turn on inconvenience penalties, e.g. for air pollution
 $setglobal cm_INCONV_PENALTY  on         !! def = on  !! regexp = off|on
